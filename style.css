@@ -8,9 +8,11 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-text-rendering: optimizeLegibility;
     -webkit-font-feature-settings: "liga" 1, "dlig" 1;
+    font-family: "JetBrains-Mono", Roboto, sans-serif;
 }
 
 .title {
+    white-space: nowrap;
     color: #d2d2d2;
     display: block;
     padding: 0 1rem;
@@ -25,9 +27,31 @@ body {
     align-items: center;
 }
 
+.variables--container {
+    margin-left: 1rem;
+}
+
+.variable {
+    margin: .25rem .5rem;
+    padding: .75rem 1rem;
+    border-radius: 3px;
+    border: 1px solid #a3a3a3;
+    color: #a3a3a3;
+    transition: .5s;
+    background: none;
+    cursor: pointer;
+}
+
 .calc--container {
     flex-direction: column;
     align-items: flex-start;
+}
+
+.button--container {
+    display: flex;
+    float: right;
+    justify-self: flex-end;
+    margin-left: auto;
 }
 
 .calc {
@@ -38,12 +62,16 @@ body {
     padding-bottom: .75rem;
     background: none;
     font-size: 2rem;
-    font-family: "JetBrains-Mono", sans-serif;
     caret-color: #0090ff;
     color: #d2d2d2;
     text-decoration: none;
     outline: none;
     border: none;
+    border-bottom: 1px solid #d2d2d2;
+    transition: .5s;
+}
+
+.calc:focus {
     border-bottom: 1px solid #0090ff;
 }
 
@@ -53,10 +81,19 @@ body {
 }
 .result--container > table {
     margin-left: 1rem;
+    border: none;
 }
 
 th {
     padding: .75rem 2rem;
+}
+
+td {
+    padding: .25rem 2rem;
+}
+
+tr {
+    text-align: center;
 }
 
 @font-face {

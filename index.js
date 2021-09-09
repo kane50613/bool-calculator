@@ -60,7 +60,7 @@ $('#remove-variable').get(0).addEventListener('click', () => {
     // })
 })
 
-input.addEventListener('keyup', update)
+input.addEventListener('input', update)
 
 function updateTable() {
     if(input.value.trim().length === 0)
@@ -145,7 +145,10 @@ function updateUsed() {
 }
 
 function update() {
-    input.value = input.value.toUpperCase()
+    input.value = input.value.toUpperCase().trim()
+        .replace(/ /g, '')
+        .replace(/([\^])/g, ' $1 ')
+        .replace(/([&|]{2})/g, ' $1 ')
     updateTable()
     updateUsed()
 }

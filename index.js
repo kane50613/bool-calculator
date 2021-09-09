@@ -16,49 +16,15 @@ $('#add-variable').get(0).addEventListener('click', () => {
     })
     $('#vars').get(0).appendChild(button)
     update()
-    // mdui.prompt(
-    //     '新增變數',
-    //     (value) => {
-    //         value = value?.replace(/ /g, '') ?? ''
-    //         if(value.length === 0)
-    //             return mdui.alert('輸入變數的名字!')
-    //
-    //         if(!/^[a-zA-Z0-9-_]+$/.test(value))
-    //             return mdui.alert('只能使用英數的名字!')
-    //
-    //         if(vars.includes(value))
-    //             return mdui.alert('該變數已經存在了!')
-    //
-    //         vars.push(value)
-    //         updateTable()
-    //     },
-    //     () => {},
-    //     { confirmOnEnter: true }
-    // )
 })
 
 $('#remove-variable').get(0).addEventListener('click', () => {
     if(vars.length === 0)
         return
+    delete window[vars[vars.length - 1]]
     vars.splice(vars.length - 1, 1)
     $('#vars').get(0).lastChild.remove()
     update()
-    // let vars_text = vars.map(x => `<li id="remove-var--${x}" class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content">${x}</div><i class="mdui-icon material-icons">&#xe5cd;</i></li>`)
-    // mdui.dialog({
-    //     title: '移除變數',
-    //     content: `<ul class="mdui-list">${vars_text.length === 0 ? '還沒有新增任何變數' : vars_text}</ul>`,
-    //     buttons: [
-    //         { text: '關閉' }
-    //     ],
-    //     onOpened: () => {
-    //         for(let _var of vars)
-    //             $(`#remove-var--${_var}`).get(0).addEventListener('click', () => {
-    //                 vars.splice(vars.indexOf(_var), 1)
-    //                 $(`#remove-var--${_var}`).get(0).remove()
-    //                 updateTable()
-    //             })
-    //     }
-    // })
 })
 
 input.addEventListener('input', update)
@@ -148,7 +114,7 @@ function updateUsed() {
 function update() {
     input.value = input.value.toUpperCase()
         .replace(/ /g, '')
-        .replace(/([\^()])/g, ' $1 ')
+        .replace(/([\^()+\-*/])/g, ' $1 ')
         .replace(/([&|]{2})/g, ' $1 ')
         .replace(/[ ]{2,}/g, ' ')
         .trim()

@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    margin: 0;
+    padding: 1rem 4rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-rendering: optimizeLegibility;
+    -webkit-font-feature-settings: "liga" 1, "dlig" 1;
+}
+
+.title {
+    color: #d2d2d2;
+    display: block;
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.calc--container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.calc {
+    width: calc(100% - 1rem);
+    display: block;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    padding-bottom: .75rem;
+    background: none;
+    font-size: 2rem;
+    font-family: "JetBrains-Mono", sans-serif;
+    caret-color: #0090ff;
+    color: #d2d2d2;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #0090ff;
+}
+
+.result--container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+.result--container > table {
+    margin-left: 1rem;
+}
+
+th {
+    padding: .75rem 2rem;
+}
+
+@font-face {
+    font-family: "JetBrains-Mono";
+    src:
+        local("JetBrains Mono"),
+        url("/JetBrainsMono-Regular.woff2");
+    font-weight: normal;
+}

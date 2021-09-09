@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css" integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="mdui-color-grey-900">
+<h1 class="title">布林代數計算機</h1>
+
+<div class="var--container container">
+    <h2 class="title">變數</h2>
+    <button class="mdui-btn mdui-color-theme-accent mdui-ripple" id="add-variable">新增變數</button>
+    <button class="mdui-btn mdui-color-theme-accent mdui-ripple" id="remove-variable">移除變數</button>
+</div>
+
+<div class="calc--container container">
+    <h2 class="title">計算式</h2>
+    <input class="calc" id="calc" spellcheck="false">
+</div>
+
+<div class="result--container container">
+    <h2 class="title">結果</h2>
+    <table id="result"></table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js" integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+</body>
+</html>

@@ -11,6 +11,10 @@ body {
     font-family: "JetBrains-Mono", Roboto, sans-serif;
 }
 
+.mdui-btn {
+    font-size: 120%;
+}
+
 .title {
     white-space: nowrap;
     color: #d2d2d2;

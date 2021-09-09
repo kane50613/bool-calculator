@@ -41,6 +41,7 @@ $('#remove-variable').get(0).addEventListener('click', () => {
     if(vars.length === 0)
         return
     vars.splice(vars.length - 1, 1)
+    $('#vars').get(0).lastChild.remove()
     update()
     // let vars_text = vars.map(x => `<li id="remove-var--${x}" class="mdui-list-item mdui-ripple"><div class="mdui-list-item-content">${x}</div><i class="mdui-icon material-icons">&#xe5cd;</i></li>`)
     // mdui.dialog({
@@ -63,11 +64,11 @@ $('#remove-variable').get(0).addEventListener('click', () => {
 input.addEventListener('input', update)
 
 function updateTable() {
-    if(input.value.trim().length === 0)
-        return
-
     let table = $('#result').get(0)
     table.innerHTML = ''
+
+    if(input.value.trim().length === 0)
+        return
 
     if(getUsedVars().length === 0) {
         $('#result-title').get(0).innerText = `結果`
@@ -145,10 +146,12 @@ function updateUsed() {
 }
 
 function update() {
-    input.value = input.value.toUpperCase().trim()
+    input.value = input.value.toUpperCase()
         .replace(/ /g, '')
-        .replace(/([\^])/g, ' $1 ')
+        .replace(/([\^()])/g, ' $1 ')
         .replace(/([&|]{2})/g, ' $1 ')
+        .replace(/[ ]{2,}/g, ' ')
+        .trim()
     updateTable()
     updateUsed()
 }

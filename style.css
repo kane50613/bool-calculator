@@ -40,6 +40,24 @@ body {
     transition: .5s;
     background: none;
     cursor: pointer;
+    font-size: 125%;
+}
+
+.variable:hover,
+.variable:focus {
+    background-color: #a3a3a3;
+    color: #212121;
+}
+
+.variable.used {
+    border: 1px solid #30a4ff;
+    color: #30a4ff;
+}
+
+.variable.used:hover,
+.variable.used:focus {
+    background-color: #30a4ff;
+    color: #212121;
 }
 
 .calc--container {
@@ -81,19 +99,43 @@ body {
 }
 .result--container > table {
     margin-left: 1rem;
+    margin-top: 1rem;
     border: none;
 }
 
 th {
-    padding: .75rem 2rem;
+    padding: 0 2rem .75rem 0;
 }
 
 td {
-    padding: .25rem 2rem;
+    padding: 0 2rem .25rem 0;
 }
 
-tr {
-    text-align: center;
+.license {
+    position: fixed;
+    bottom: 1rem;
+    right: 2rem;
+    font-size: 1rem;
+    opacity: .75;
+}
+
+.text--green {
+    color: limegreen;
+}
+
+.text--red {
+    color: #e80000;
+}
+
+.block {
+    background-color: rgba(255, 135, 135, 0.5);
+    padding: .9rem 1.5rem;
+    border-radius: 3px;
+    letter-spacing: 2px;
+}
+
+.code--block {
+    background-color: #464646;
 }
 
 @font-face {

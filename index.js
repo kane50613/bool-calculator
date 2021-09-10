@@ -93,13 +93,22 @@ function updateTable() {
 
 function updateList() {
     let result = {}, results = []
-    let for_list = getUsedVars().reduce((v, x) =>
-        v += `for(let i_${x} = 0; i_${x} <= 1; i_${x}++) {result['${x}'] = i_${x};if(Object.keys(result).length === getUsedVars().length && !results.find(x => JSON.stringify(x) === JSON.stringify(result))) results.push(Object.assign({}, result));`, '')
-    for(let _ of getUsedVars())
-    for_list += '}'
-    eval(for_list)
+    _loop(getUsedVars(), 0)
+
+    function _loop(_vars, index) {
+        if(_vars[index])
+            for(let i = 0; i <= 1; i++) {
+                result[_vars[index].toString()] = i
+                if(Object.keys(result).length === _vars.length && !results.find(x => JSON.stringify(x) === JSON.stringify(result)))
+                    results.push(Object.assign({}, result))
+                if(_vars[index + 1])
+                    _loop(_vars, index + 1)
+            }
+    }
+
     results = results.sort((a, b) => Object.values(a).reduce((v, x) => v + x, 0) - Object.values(b).reduce((v, x) => v + x, 0))
     return results
+
 }
 
 function updateUsed() {

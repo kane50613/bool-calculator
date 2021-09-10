@@ -123,7 +123,7 @@ function updateUsed() {
 function update() {
     input.value = input.value.toUpperCase()
         .replace(/ /g, '')
-        .replace(/([\^()+\-*/]|&&|\|\|)/g, ' $1 ')
+        .replace(/([\^+\-*/]|&&|\|\|)/g, ' $1 ')
         .replace(/[ ]{2,}/g, ' ')
         .trim()
     updateTable()

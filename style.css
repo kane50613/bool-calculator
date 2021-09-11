@@ -131,6 +131,14 @@ td {
     opacity: .75;
 }
 
+.license > a {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #22d5ff;
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+}
+
 .text--green {
     color: limegreen;
 }

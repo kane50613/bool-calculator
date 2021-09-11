@@ -154,7 +154,7 @@ td {
     font-family: "JetBrains-Mono";
     src:
         local("JetBrains Mono"),
-        url("/JetBrainsMono-Regular.woff2") format("woff"),
-        url("/JetBrainsMono.ttf") format("truetype");
+        url("JetBrainsMono-Regular.woff2") format("woff"),
+        url("JetBrainsMono.ttf") format("truetype");
     font-weight: normal;
 }
